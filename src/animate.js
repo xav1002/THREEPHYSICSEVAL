@@ -4,6 +4,7 @@ import {camera} from './constructor';
 import {clock} from './physics/physicsConstructor';
 import moveCamera from './moveCamera';
 import updatePhysics from './physics/updatePhysics';
+import movePlane from './physics/movePlane';
 
 /**
  * this is the animate function, called to interate new frames
@@ -22,6 +23,8 @@ function animate() {
     
     var deltaTime = clock.getDelta();
     updatePhysics(deltaTime);
+
+    movePlane();
 
     prevTime = time;
 

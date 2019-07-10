@@ -40,6 +40,16 @@ var d = false;
 var up = false;
 var down = false;
 
+var xP = false;
+var xN = false;
+var yP = false;
+var yN = false;
+var zP = false;
+var zN = false;
+
+var axisX = 0;
+var axisZ = 0;
+
 window.addEventListener('keydown', function(e) {
     switch( e.keyCode ) {
         case 81:
@@ -73,6 +83,34 @@ window.addEventListener('keydown', function(e) {
         case 16:
             down = true;
             break;
+
+        case 89:
+            xP = true;
+            axisZ = 0.05;
+            break;
+
+        case 85:
+            xN = true;
+            axisZ = -0.05;
+            break;
+
+        case 72:
+            zP = true;
+            axisX = 0.05;
+            break;
+
+        case 74:
+            zN = true;
+            axisX = -0.05;
+            break;
+
+        case 78:
+            yP = true;
+            break;
+
+        case 77:
+            yN = true;
+            break;
     }
 });
 
@@ -101,7 +139,39 @@ window.addEventListener('keyup', function(e) {
         case 16:
             down = false;
             break;
+
+        case 89:
+            xP = false;
+            axisZ = 0;
+            break;
+    
+        case 85:
+            xN = false;
+            axisZ = 0;
+            break;
+
+        case 72:
+            zP = false;
+            axisZ = 0;
+            break;
+
+        case 74:
+            zN = false;
+            axisZ = 0;
+            break;
+
+        case 78:
+            yP = false;
+            break;
+
+        case 77:
+            yN = false;
+            break;
     }
 });
 
 export {w, s, a, d, up, down};
+
+export {xP, xN, yP, yN, zP, zN};
+
+export {axisX, axisZ};
