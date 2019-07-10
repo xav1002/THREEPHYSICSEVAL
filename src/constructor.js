@@ -1,7 +1,11 @@
+/**
+ * this file is used to initiate most of the variables and objects used in the project
+ */
+
 export var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000);
 
-var renderer = new THREE.WebGLRenderer(scene, camera);
+var renderer = new THREE.WebGLRenderer({antialias: true});
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setClearColor('rgb(100, 100, 300)');
 document.body.appendChild(renderer.domElement);
@@ -16,7 +20,7 @@ var objects = [];
 
 for(var i = 0; i < 6; i += 1) {
     objects.push(
-        new THREE.Mesh(new THREE.SphereGeometry(Math.random() * 10, 50, 50), new THREE.MeshPhongMaterial())
+        new THREE.Mesh(new THREE.SphereGeometry(Math.random() * 10, 50, 50), new THREE.MeshPhongMaterial({color: `rgb(${Math.ceil(Math.random() * 100)}, ${Math.ceil(Math.random() * 100)}, ${Math.ceil(Math.random() * 100)})`}))
     );
 
     objects[i].position.set((100 * Math.random()) - 50, (100 * Math.random()) - 50, (100 * Math.random()) - 50);

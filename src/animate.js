@@ -1,7 +1,9 @@
 import {renderer} from './constructor';
 import {scene} from './constructor';
 import {camera} from './constructor';
+import {clock} from './physics/physicsConstructor';
 import moveCamera from './moveCamera';
+import updatePhysics from './physics/updatePhysics';
 
 /**
  * this is the animate function, called to interate new frames
@@ -17,7 +19,9 @@ function animate() {
 
     var time = performance.now();
     var delta = (time - prevTime) / 1000;
-    // console.log(delta);
+    
+    var deltaTime = clock.getDelta();
+    updatePhysics(deltaTime);
 
     prevTime = time;
 

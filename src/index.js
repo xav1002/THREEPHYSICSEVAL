@@ -6,6 +6,9 @@ import {objects} from './constructor';
 import {controls} from './constructor';
 import {origin} from './constructor';
 import animate from './animate';
+import initiatePhysics from './physics/initiatePhysics';
+import createBall from './physics/createObjects/createBall';
+import createPlane from './physics/createObjects/createPlane';
 
 /**
  * used to initiate the scene, and add all the parts
@@ -21,6 +24,12 @@ function init() {
     objects.forEach(object => {
         scene.add(object);
     });
+
+    initiatePhysics();
+
+    createBall();
+
+    createPlane();
 
     animate();
 }
