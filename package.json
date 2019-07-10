@@ -1,0 +1,24 @@
+{
+  "name": "threephysicseval",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xav1002/THREEPHYSICSEVAL.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xav1002/THREEPHYSICSEVAL/issues"
+  },
+  "homepage": "https://github.com/xav1002/THREEPHYSICSEVAL#readme",
+  "devDependencies": {
+    "webpack": "^4.35.3",
+    "webpack-cli": "^3.3.5"
+  }
+}
