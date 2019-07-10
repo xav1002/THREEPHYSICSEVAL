@@ -24,7 +24,7 @@ function animate() {
     var deltaTime = clock.getDelta();
     updatePhysics(deltaTime);
 
-    movePlane();
+    // movePlane();
 
     prevTime = time;
 

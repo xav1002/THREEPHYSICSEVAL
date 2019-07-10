@@ -152,12 +152,12 @@ window.addEventListener('keyup', function(e) {
 
         case 72:
             zP = false;
-            axisZ = 0;
+            axisX = 0;
             break;
 
         case 74:
             zN = false;
-            axisZ = 0;
+            axisX = 0;
             break;
 
         case 78:

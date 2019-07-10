@@ -10,7 +10,7 @@ function initiatePhysics() {
     solver = new Ammo.btSequentialImpulseConstraintSolver();
     softBodySolver = new Ammo.btDefaultSoftBodySolver
     physicsWorld = new Ammo.btSoftRigidDynamicsWorld(dispatcher, broadphase, solver, collisionConfiguration, softBodySolver);
-    physicsWorld.setGravity(new Ammo.btVector3(0, -1, 0));
+    physicsWorld.setGravity(new Ammo.btVector3(0, -9.81, 0));
     physicsWorld.getWorldInfo().set_m_gravity(new Ammo.btVector3(0, -1, 0));
 }
 

@@ -4,25 +4,22 @@ import {axisX, axisZ} from '../constructor';
 
 function movePlane() {
     // console.log(plane);
+    console.log(axisX, axisZ);
     if(xP) {
-        plane.rotation.x += .001;
-        plane.body.setAngularVelocity(new Ammo.btVector3(plane.body.getAngularVelocity().x() + axisX, plane.body.getAngularVelocity().y(), plane.body.getAngularVelocity().z() + axisZ));
+        plane.rotation.x += .01;
     } else if(xN) {
-        plane.rotation.x -= .001;
-        plane.body.setAngularVelocity(new Ammo.btVector3(plane.body.getAngularVelocity().x() + axisX, plane.body.getAngularVelocity().y(), plane.body.getAngularVelocity().z() + axisZ));
+        plane.rotation.x -= .01;
     } else if(yP) {
-        plane.rotation.y += .001;
-        plane.body.setAngularVelocity(new Ammo.btVector3(plane.body.getAngularVelocity().x() + axisX, plane.body.getAngularVelocity().y(), plane.body.getAngularVelocity().z() + axisZ));
+        plane.rotation.y += .01;
     } else if(yN) {
-        plane.rotation.y -= .001;
-        plane.body.setAngularVelocity(new Ammo.btVector3(plane.body.getAngularVelocity().x() + axisX, plane.body.getAngularVelocity().y(), plane.body.getAngularVelocity().z() + axisZ));
+        plane.rotation.y -= .01;
     } else if(zP) {
-        plane.rotation.z += .001;
-        plane.body.setAngularVelocity(new Ammo.btVector3(plane.body.getAngularVelocity().x() + axisX, plane.body.getAngularVelocity().y(), plane.body.getAngularVelocity().z() + axisZ));
+        plane.rotation.z += .01;
     } else if(zN) {
-        plane.rotation.z -= .001;
-        plane.body.setAngularVelocity(new Ammo.btVector3(plane.body.getAngularVelocity().x() + axisX, plane.body.getAngularVelocity().y(), plane.body.getAngularVelocity().z() + axisZ));
+        plane.rotation.z -= .01;
     }
+    plane.body.setAngularVelocity(new Ammo.btVector3(plane.body.getAngularVelocity().x() + axisX, plane.body.getAngularVelocity().y(), plane.body.getAngularVelocity().z() + axisZ));
+    console.log(plane.body.getAngularVelocity().x(), plane.body);
 }
 
 export default movePlane;
