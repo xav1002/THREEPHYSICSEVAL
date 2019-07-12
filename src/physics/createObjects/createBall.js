@@ -3,19 +3,20 @@ import createRigidObjects from '../createRigidObjects';
 
 var ball;
 
-function createBall() {
-    var ballRadius = 1;
+function createBall(ballRadius, ballPos) {
+    // var ballRadius = 1;
     var ballSegment = 30;
-    var ballMass = 20;
+    // var ballMass = 20;
     ball = new THREE.Mesh(
-        new THREE.SphereGeometry(ballRadius, ballSegment, ballMass),
+        new THREE.SphereGeometry(ballRadius, ballSegment, ballSegment),
         new THREE.MeshPhongMaterial({color: 'red'})
     );
-    ball.name = 'player';
+    ball.name = 'ball';
     var ballShape = new Ammo.btSphereShape(ballRadius);
-    pos.set(100, 40, 0);
+    pos.set(ballPos.x, ballPos.y, ballPos.z);
+    // console.log(pos);
     qua.set(0, 0, 0, 1);
-    createRigidObjects(ball, ballShape, ballMass, pos, qua);
+    createRigidObjects(ball, ballShape, ballRadius * 2, pos, qua);
 }
 
 export {ball};

@@ -1,6 +1,6 @@
-import {xP, xN, yP, yN, zP, zN} from '../constructor';
+import {xP, xN, yP, yN, zP, zN} from '../graphicsConstructor';
 import {plane} from './createObjects/createPlane';
-import {axisX, axisZ} from '../constructor';
+import {axisX, axisZ} from '../graphicsConstructor';
 
 function movePlane() {
     // console.log(plane);

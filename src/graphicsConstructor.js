@@ -16,19 +16,19 @@ export {camera};
 
 export var ambient = new THREE.AmbientLight(0xffffff);
 
-var objects = [];
+// var objects = [];
 
-for(var i = 0; i < 6; i += 1) {
-    objects.push(
-        new THREE.Mesh(new THREE.SphereGeometry(Math.random() * 10, 50, 50), new THREE.MeshPhongMaterial({color: `rgb(${Math.ceil(Math.random() * 100)}, ${Math.ceil(Math.random() * 100)}, ${Math.ceil(Math.random() * 100)})`}))
-    );
+// for(var i = 0; i < 6; i += 1) {
+//     objects.push(
+//         new THREE.Mesh(new THREE.SphereGeometry(Math.random() * 10, 50, 50), new THREE.MeshPhongMaterial({color: `rgb(${Math.ceil(Math.random() * 100)}, ${Math.ceil(Math.random() * 100)}, ${Math.ceil(Math.random() * 100)})`}))
+//     );
 
-    objects[i].position.set((100 * Math.random()) - 50, (100 * Math.random()) - 50, (100 * Math.random()) - 50);
-}
+//     objects[i].position.set((100 * Math.random()) - 50, (100 * Math.random()) - 50, (100 * Math.random()) - 50);
+// }
 
-export {objects};
+// export {objects};
 
-export var origin = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 10), new THREE.MeshPhongMaterial({color: 'purple'}));
+// export var origin = new THREE.Mesh( new THREE.BoxGeometry(10, 10, 10), new THREE.MeshPhongMaterial({color: 'purple'}));
 
 export var velocity = new THREE.Vector3();
 export var direction = new THREE.Vector3();

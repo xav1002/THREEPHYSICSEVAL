@@ -4,14 +4,13 @@ var collisionConfiguration, dispatcher, broadphase, solver, softBodySolver, phys
  * initiates physics of the app
  */
 function initiatePhysics() {
-    collisionConfiguration = new Ammo.btSoftBodyRigidBodyCollisionConfiguration();
+    collisionConfiguration = new Ammo.btDefaultCollisionConfiguration();
     dispatcher = new Ammo.btCollisionDispatcher(collisionConfiguration);
     broadphase = new Ammo.btDbvtBroadphase();
     solver = new Ammo.btSequentialImpulseConstraintSolver();
-    softBodySolver = new Ammo.btDefaultSoftBodySolver
-    physicsWorld = new Ammo.btSoftRigidDynamicsWorld(dispatcher, broadphase, solver, collisionConfiguration, softBodySolver);
-    physicsWorld.setGravity(new Ammo.btVector3(0, -9.81, 0));
-    physicsWorld.getWorldInfo().set_m_gravity(new Ammo.btVector3(0, -1, 0));
+    // softBodySolver = new Ammo.btDefaultSoftBodySolver
+    physicsWorld = new Ammo.btDiscreteDynamicsWorld(dispatcher, broadphase, solver, collisionConfiguration);
+    physicsWorld.setGravity(new Ammo.btVector3(0, 0, 0));
 }
 
 export {collisionConfiguration, dispatcher, broadphase, solver, softBodySolver, physicsWorld};

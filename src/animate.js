@@ -1,10 +1,11 @@
-import {renderer} from './constructor';
-import {scene} from './constructor';
-import {camera} from './constructor';
+import {renderer} from './graphicsConstructor';
+import {scene} from './graphicsConstructor';
+import {camera} from './graphicsConstructor';
 import {clock} from './physics/physicsConstructor';
 import moveCamera from './moveCamera';
 import updatePhysics from './physics/updatePhysics';
-import movePlane from './physics/movePlane';
+import {controls} from './graphicsConstructor';
+import {origin} from './physics/createObjects/createOrigin';
 
 /**
  * this is the animate function, called to interate new frames
@@ -23,8 +24,6 @@ function animate() {
     
     var deltaTime = clock.getDelta();
     updatePhysics(deltaTime);
-
-    // movePlane();
 
     prevTime = time;
 

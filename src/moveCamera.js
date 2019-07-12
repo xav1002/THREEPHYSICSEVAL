@@ -1,7 +1,7 @@
-import {controls} from './constructor';
-import {velocity} from './constructor';
-import {direction} from './constructor';
-import {w, s, a, d, up, down} from './constructor';
+import {controls} from './graphicsConstructor';
+import {velocity} from './graphicsConstructor';
+import {direction} from './graphicsConstructor';
+import {w, s, a, d, up, down} from './graphicsConstructor';
 
 /**
  * 
@@ -23,13 +23,13 @@ function moveCamera(delta) {
     // console.log(direction.z, direction.x, direction.y);
 
     if(w || s) {
-        velocity.z -= direction.z * 4000 * delta;
+        velocity.z -= direction.z * 400 * delta;
     }
     if(a || d) {
-        velocity.x -= direction.x * 4000 * delta;
+        velocity.x -= direction.x * 400 * delta;
     }
     if(up || down) {
-        velocity.y += direction.y * 4000 * delta;
+        velocity.y += direction.y * 400 * delta;
     }
 
     controls.getObject().translateX(velocity.x * delta);

@@ -1,6 +1,6 @@
-import {scene} from '../constructor';
+import {scene} from '../graphicsConstructor';
 import {physicsWorld} from './initiatePhysics';
-import {rigidBodyObjects} from './physicsConstructor';
+import {rigidBodyObjects, spheres} from './physicsConstructor';
 
 /**
  * creates rigid body object
@@ -10,6 +10,7 @@ function createRigidObjects(object, shape, mass, position, quaternion) {
     object.quaternion.copy(quaternion);
     var transform = new Ammo.btTransform();
     transform.setIdentity();
+    // console.log(transform);
     transform.setOrigin(new Ammo.btVector3(position.x, position.y, position.z));
     transform.setRotation(new Ammo.btQuaternion(quaternion.x, quaternion.y, quaternion.z, quaternion.w));
     var motionState = new Ammo.btDefaultMotionState(transform);
@@ -21,8 +22,12 @@ function createRigidObjects(object, shape, mass, position, quaternion) {
     scene.add(object);
     if(mass > 0) {
         rigidBodyObjects.push(object);
+        if(object.name === 'ball') {
+            spheres.push(object);
+        }
     }
     physicsWorld.addRigidBody(rigidBody);
+    return object;
 }
 
 export default createRigidObjects;
