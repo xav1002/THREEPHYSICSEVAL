@@ -10,6 +10,7 @@ import createMap from './physics/createObjects/createMap';
 import {map} from './physics/physicsConstructor';
 import createOrigin, {origin} from './physics/createObjects/createOrigin';
 import repulsion from './physics/repulsion';
+import {spheres} from './physics/physicsConstructor';
 
 /**
  * used to initiate the scene, and add all the parts
@@ -20,6 +21,8 @@ function init() {
 
     controls.getObject().position.set(0, 0, 100);
     scene.add(controls.getObject());
+
+    // controls.update();
 
     initiatePhysics();
 
@@ -48,9 +51,45 @@ function init() {
     testRay.lookAt(new THREE.Vector3(1, 1, 1));
     console.log(testRay);
 
-    console.log(repulsion());
-
     animate();
+
+    // var testTransforma = new Ammo.btTransform();
+    // var testTransformb = new Ammo.btTransform();
+    // var testTransformc = new Ammo.btTransform();
+    // var testTransformd = new Ammo.btTransform();
+    // var testTransforme = new Ammo.btTransform();
+    // var testTransformf = new Ammo.btTransform();
+
+
+    // spheres[0].body.getMotionState().getWorldTransform(testTransforma)
+    // spheres[1].body.getMotionState().getWorldTransform(testTransformb)
+    // spheres[2].body.getMotionState().getWorldTransform(testTransformc)
+    // spheres[3].body.getMotionState().getWorldTransform(testTransformd)
+    // spheres[4].body.getMotionState().getWorldTransform(testTransforme)
+    // spheres[5].body.getMotionState().getWorldTransform(testTransformf)
+
+    // console.log(
+    //     testTransforma,
+    //     testTransformb.getOrigin().x(),
+    //     testTransformc.getOrigin().x(),
+    //     // testTransformd.getOrigin().x(),
+    //     // testTransforme.getOrigin().x(),
+    //     // testTransformf.getOrigin().x(),
+
+    //     testTransforma.getOrigin().y(),
+    //     testTransformb.getOrigin().y(),
+    //     testTransformc.getOrigin().y(),
+    //     // testTransformd.getOrigin().y(),
+    //     // testTransforme.getOrigin().y(),
+    //     // testTransformf.getOrigin().y(),
+
+    //     testTransforma.getOrigin().z(),
+    //     testTransformb.getOrigin().z(),
+    //     testTransformc.getOrigin().z()
+    //     // testTransformd.getOrigin().z(),
+    //     // testTransforme.getOrigin().z(),
+    //     // testTransformf.getOrigin().z()
+    // )
 }
 
 export default init;

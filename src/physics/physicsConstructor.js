@@ -8,6 +8,7 @@ export {clock};
 
 export var transformAssistant = new Ammo.btTransform();
 export var transformAssistantRepulsion = new Ammo.btTransform();
+export var transformAssistantAttraction = new Ammo.btTransform();
 
 export var rigidBodyObjects = [];
 export var spheres = [];

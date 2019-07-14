@@ -4,11 +4,11 @@ import {transformAssistant, transformAssistantRepulsion} from './physicsConstruc
 /**
  * simulating repulsion between the spheres
  * may have issue with the spheres array
+ * add factor for decreasing impulse amount with distance increase
  */
 
 function repulsion() {
-    var speed = 10;
-    var dir = 1;
+    var magnitude = 1;
     spheres.forEach(obj => {
         var otherObj = [];
         var xComponent = [];
@@ -18,22 +18,26 @@ function repulsion() {
         var yMean = 0;
         var zMean = 0;
         var body = obj.body;
-        var motionState = body.getMotionState();
-        motionState.getWorldTransform(transformAssistant);
+        var bodyMotionState = body.getMotionState();
+        bodyMotionState.getWorldTransform(transformAssistant);
+        // console.log(transformAssistant.getOrigin().x(), transformAssistant.getOrigin().y(), transformAssistant.getOrigin().z());
 
+        if(bodyMotionState) {
             for(var i = 0; i < spheres.length; i += 1) {
                 if(obj.uuid !== spheres[i].uuid) {
                     var newRay = new THREE.Ray();
                     newRay.origin = new THREE.Vector3(transformAssistant.getOrigin().x(), transformAssistant.getOrigin().y(), transformAssistant.getOrigin().z());
-                    var newMotionState = spheres[i].body.getMotionState();
-                    newMotionState.getWorldTransform(transformAssistantRepulsion);
-                    var direction = new THREE.Vector3(transformAssistantRepulsion.getOrigin().x(), transformAssistant.getOrigin().y(), transformAssistant.getOrigin().z());
-                    direction.normalize();
+                    var newBodyMotionState = spheres[i].body.getMotionState();
+                    newBodyMotionState.getWorldTransform(transformAssistantRepulsion);
+                    var position = transformAssistantRepulsion.getOrigin();
+                    var direction = new THREE.Vector3(position.x(), position.y(), position.z());
+                    // direction.normalize();
                     newRay.lookAt(direction);
                     // console.log(newRay.origin, newRay.direction);
                     otherObj.push(newRay);
                 }
             }
+        }
 
             otherObj.forEach(ray => {
                 xComponent.push(ray.direction.x);
@@ -49,11 +53,12 @@ function repulsion() {
 
             xMean = xMean / xComponent.length;
             yMean = yMean / xComponent.length;
-            zMean = zMean / zComponent.length;
+            zMean = zMean / xComponent.length;
 
             // console.log(otherObj);
 
-            body.setLinearVelocity(new Ammo.btVector3(dir * xMean * speed, dir * yMean * speed, dir * zMean * speed));
+            // body.setLinearVelocity(new Ammo.btVector3((xMean) * magnitude, (yMean) * magnitude, (zMean) * magnitude));
+            body.applyCentralImpulse(new Ammo.btVector3((xMean) * magnitude, (yMean) * magnitude, (zMean) * magnitude));
     });
 }
 

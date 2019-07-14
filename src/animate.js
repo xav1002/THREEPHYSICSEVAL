@@ -6,6 +6,7 @@ import moveCamera from './moveCamera';
 import updatePhysics from './physics/updatePhysics';
 import {controls} from './graphicsConstructor';
 import {origin} from './physics/createObjects/createOrigin';
+import repulsion from './physics/repulsion';
 
 /**
  * this is the animate function, called to interate new frames
@@ -28,6 +29,8 @@ function animate() {
     prevTime = time;
 
     moveCamera(delta);
+
+    // controls.update();
 
     renderer.render(scene, camera);
 }

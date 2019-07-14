@@ -4,6 +4,7 @@
 
 export var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000);
+export {camera};
 
 var renderer = new THREE.WebGLRenderer({antialias: true});
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -11,8 +12,18 @@ renderer.setClearColor('rgb(100, 100, 300)');
 document.body.appendChild(renderer.domElement);
 export {renderer};
 
-export var controls = new THREE.PointerLockControls(camera);
-export {camera};
+// var controls = new THREE.TrackballControls(camera, renderer.domElement);
+// controls.rotateSpeed = 1.0;
+// controls.zoomSpeed = 1.2;
+// controls.panSpeed = 2;
+// controls.noZoom = false;
+// controls.noPan = false;
+// controls.staticMoving = true;
+// controls.dynamicDampingFactor = 0.3;
+// controls.keys = [ 65, 83, 68 ];
+
+var controls = new THREE.PointerLockControls(camera);
+export {controls};
 
 export var ambient = new THREE.AmbientLight(0xffffff);
 
