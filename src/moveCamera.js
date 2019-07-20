@@ -2,6 +2,7 @@ import {controls} from './graphicsConstructor';
 import {velocity} from './graphicsConstructor';
 import {direction} from './graphicsConstructor';
 import {w, s, a, d, up, down} from './graphicsConstructor';
+import {cameraShape} from './physics/createObjects/createCameraObj';
 
 /**
  * 
@@ -35,6 +36,10 @@ function moveCamera(delta) {
     controls.getObject().translateX(velocity.x * delta);
     controls.getObject().translateY(velocity.y * delta);
     controls.getObject().translateZ(velocity.z * delta);
+
+    // Set the camera physics object as body property of the camera?
+
+    // cameraShape.setLinearVelocity(new Ammo.btVector3(controls.getObject().position.x, controls.getObject().position.y, controls.getObject().position.z));
 
     // console.log(delta, controls.getObject().position);
     // console.log(w,a,s,d,up,down);

@@ -28,9 +28,8 @@ function updatePhysics(deltaTime) {
                 rigidBodyObjects[i].quaternion.set(quaternion.x(), quaternion.y(), quaternion.z(), quaternion.w());
             }
         }
-        // repulsion();
+        repulsion();
         attraction();
-        // rigidBodyObjects[4].body.applyCentralImpulse(new Ammo.btVector3(0, 100, 0));
 }
 
 export default updatePhysics;

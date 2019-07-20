@@ -29,67 +29,19 @@ function init() {
     createMap(map);
     createOrigin();
 
-    var startingPosition = 100;
+    var startingPosition = 2;
 
     for(var i = 0; i < 6; i += 1) {
         var location = new THREE.Vector3((Math.random() * startingPosition) - (startingPosition / 2), (Math.random() * startingPosition) - (startingPosition / 2), (Math.random() * startingPosition) - (startingPosition / 2));
         createBall(Math.random() * 10, location);
     }
 
-    console.log(origin);
-
     window.addEventListener('keydown', function(e) {
-        if(e.keyCode === 67) {
-            origin.body.activate(true);
-            origin.body.applyImpulse(100, new Ammo.btTransform(0, 0, 1));
-            this.console.log(origin.body, origin.body.isActive(), origin.body.getWorldTransform());
-        }
-    })
-
-    var testRay = new THREE.Ray();
-    testRay.origin = new THREE.Vector3(0, 0, 0);
-    testRay.lookAt(new THREE.Vector3(1, 1, 1));
-    console.log(testRay);
+        // updatePhysics aquires a hidden module when the launchBall.js was created?
+        this.console.log(e.keyCode);
+    });
 
     animate();
-
-    // var testTransforma = new Ammo.btTransform();
-    // var testTransformb = new Ammo.btTransform();
-    // var testTransformc = new Ammo.btTransform();
-    // var testTransformd = new Ammo.btTransform();
-    // var testTransforme = new Ammo.btTransform();
-    // var testTransformf = new Ammo.btTransform();
-
-
-    // spheres[0].body.getMotionState().getWorldTransform(testTransforma)
-    // spheres[1].body.getMotionState().getWorldTransform(testTransformb)
-    // spheres[2].body.getMotionState().getWorldTransform(testTransformc)
-    // spheres[3].body.getMotionState().getWorldTransform(testTransformd)
-    // spheres[4].body.getMotionState().getWorldTransform(testTransforme)
-    // spheres[5].body.getMotionState().getWorldTransform(testTransformf)
-
-    // console.log(
-    //     testTransforma,
-    //     testTransformb.getOrigin().x(),
-    //     testTransformc.getOrigin().x(),
-    //     // testTransformd.getOrigin().x(),
-    //     // testTransforme.getOrigin().x(),
-    //     // testTransformf.getOrigin().x(),
-
-    //     testTransforma.getOrigin().y(),
-    //     testTransformb.getOrigin().y(),
-    //     testTransformc.getOrigin().y(),
-    //     // testTransformd.getOrigin().y(),
-    //     // testTransforme.getOrigin().y(),
-    //     // testTransformf.getOrigin().y(),
-
-    //     testTransforma.getOrigin().z(),
-    //     testTransformb.getOrigin().z(),
-    //     testTransformc.getOrigin().z()
-    //     // testTransformd.getOrigin().z(),
-    //     // testTransforme.getOrigin().z(),
-    //     // testTransformf.getOrigin().z()
-    // )
 }
 
 export default init;

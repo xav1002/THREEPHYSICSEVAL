@@ -5,7 +5,7 @@ var origin, originShape;
 
 function createOrigin() {
     var originSize = 1;
-    var originMass = originSize * 1000;
+    var originMass = originSize * 1000000000;
     origin = new THREE.Mesh(
         new THREE.BoxGeometry(originSize, originSize, originSize),
         new THREE.MeshPhongMaterial({color: 'purple'})

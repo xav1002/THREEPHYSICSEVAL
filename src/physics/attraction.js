@@ -12,19 +12,20 @@ function attraction() {
     var originMotionState = originBody.getMotionState();
     originMotionState.getWorldTransform(transformAssistant);
 
+    // var originPosition = new THREE.Vector3(origin.position.x, origin.position.y, origin.position.z);
+
     spheres.forEach(obj => {
         var newRay = new THREE.Ray();
+        newRay.origin = new THREE.Vector3(transformAssistant.getOrigin().x(), transformAssistant.getOrigin().y(), transformAssistant.getOrigin().z());
         var newSphereMotionState = obj.body.getMotionState();
         newSphereMotionState.getWorldTransform(transformAssistantAttraction);
         var position = transformAssistantAttraction.getOrigin();
-        var objectPosition = new THREE.Vector3(position.x(), position.y(), position.z());
-        objectPosition.normalize();
-        newRay.lookAt(objectPosition);
-        var originPos = transformAssistant.getOrigin();
-        newRay.origin = new THREE.Vector3(originPos.x(), originPos.y(), originPos.z());
-        var magnitude = newRay.distanceSqToPoint(new THREE.Vector3(origin.position.x, origin.position.y, origin.position.z)) * 10000;
-        console.log(magnitude);
-        obj.body.applyCentralImpulse(new Ammo.btVector3(newRay.direction.x * magnitude, newRay.direction.y * magnitude, newRay.direction.z * magnitude));
+        var direction = new THREE.Vector3(position.x(), position.y(), position.z());
+        // direction.normalize();
+        newRay.lookAt(direction);
+        var magnitude = direction.distanceTo(newRay.origin);
+        // console.table(magnitude, newRay);
+        obj.body.applyCentralImpulse(new Ammo.btVector3(-newRay.direction.x * magnitude, -newRay.direction.y * magnitude, -newRay.direction.z * magnitude));
     });
 }
 
